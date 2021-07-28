@@ -1,0 +1,115 @@
+{
+    "version":"1.0.0",
+    "cells":[{
+        "type":"cs",
+        "input":"assist runAutoML, training_frame: \"ctrain.hex\""
+    },
+    {
+        "type":"cs",
+        "input":"getFrameSummary \"c2otest.hex\""
+    },
+    {
+        "type":"cs",
+        "input":"getModel \"XGBoost_3_AutoML_20200419_223040\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"XGBoost_3_AutoML_20200419_223040\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"XGBoost_3_AutoML_20200419_223040\", frame: \"c2otest.hex\", predictions_frame: \"predxgboost3\""
+    },
+    {
+        "type":"cs",
+        "input":"getFrameSummary \"predxgboost3\""
+    },
+    {
+        "type":"cs",
+        "input":"getModel \"GBM_1_AutoML_20200419_223040\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"GBM_1_AutoML_20200419_223040\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"GBM_1_AutoML_20200419_223040\", frame: \"c2otest.hex\", predictions_frame: \"gbm1s0\""
+    },
+    {
+        "type":"cs",
+        "input":"getFrameSummary \"gbm1s0\""
+    },
+    {
+        "type":"cs",
+        "input":"getModel \"XGBoost_1_AutoML_20200419_223040\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"XGBoost_1_AutoML_20200419_223040\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"XGBoost_1_AutoML_20200419_223040\", frame: \"c2otest.hex\", predictions_frame: \"xgb1s0\""
+    },
+    {
+        "type":"cs",
+        "input":"getFrameSummary \"xgb1s0\""
+    },
+    {
+        "type":"cs",
+        "input":"getModel \"XGBoost_grid__1_AutoML_20200419_223040_model_2\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"XGBoost_grid__1_AutoML_20200419_223040_model_2\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"XGBoost_grid__1_AutoML_20200419_223040_model_2\", frame: \"c2otest.hex\", predictions_frame: \"xgb_grid_1\""
+    },
+    {
+        "type":"cs",
+        "input":"getFrameSummary \"xgb_grid_1\""
+    },
+    {
+        "type":"cs",
+        "input":"getModel \"StackedEnsemble_BestOfFamily_AutoML_20200419_223040\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"StackedEnsemble_BestOfFamily_AutoML_20200419_223040\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"StackedEnsemble_BestOfFamily_AutoML_20200419_223040\", frame: \"c2otest.hex\", predictions_frame: \"stackE\""
+    },
+    {
+        "type":"cs",
+        "input":"getFrameSummary \"stackE\""
+    },
+    {
+        "type":"cs",
+        "input":"runAutoML {\"input_spec\":{\"training_frame\":\"ctrain.hex\",\"response_column\":\"price\",\"ignored_columns\":[\"id\",\"square_feet\",\"weekly_price\",\"monthly_price\",\"requires_license\",\"license\",\"jurisdiction_names\",\"is_business_travel_ready\"],\"sort_metric\":\"AUTO\"},\"build_control\":{\"nfolds\":5,\"balance_classes\":false,\"stopping_criteria\":{\"seed\":1984,\"max_models\":0,\"max_runtime_secs\":2500,\"max_runtime_secs_per_model\":0,\"stopping_rounds\":3,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":-1},\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false},\"build_models\":{\"exclude_algos\":[],\"exploitation_ratio\":0,\"monotone_constraints\":[]}}, 'exec'"
+    },
+    {
+        "type":"cs",
+        "input":"getLeaderboard \"AutoML_20200419_223040238@@price\""
+    },
+    {
+        "type":"cs",
+        "input":"getModel \"StackedEnsemble_AllModels_AutoML_20200419_223040\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"StackedEnsemble_AllModels_AutoML_20200419_223040\""
+    },
+    {
+        "type":"cs",
+        "input":"predict model: \"StackedEnsemble_AllModels_AutoML_20200419_223040\", frame: \"c2otest.hex\", predictions_frame: \"stackE_allMods_autoML_h2o\""
+    },
+    {
+        "type":"cs",
+        "input":"getFrameSummary \"stackE_allMods_autoML_h2o\""
+    }]
+}
