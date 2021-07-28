@@ -38,16 +38,8 @@ train$WeekofPurchase == 275
 which(train$WeekofPurchase == 275)
 
 week <- c(27,  66,  69, 147, 263, 315, 322, 332, 342, 379, 401 ,514 ,518 ,530, 563 ,601, 615, 639, 649, 671, 683)
+
 which
-
-function (x, arr.ind = FALSE, useNames = TRUE) 
-{
-    wh <- .Internal(which(x))
-    if (arr.ind && !is.null(d <- dim(x))) 
-        arrayInd(wh, d, dimnames(x), useNames = useNames)
-    else wh
-}
-
 week
 
 week[train$Purchase=="MM"]
