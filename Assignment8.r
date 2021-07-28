@@ -153,24 +153,30 @@ bag = randomForest(Purchase~PriceCH+PriceMM+DiscCH+DiscMM+SpecialCH+SpecialMM+Lo
 
 predBag = predict(bag, newdata = test, type = "prob")
  
-> treetest = rpart(Purchase~PriceCH+PriceMM+DiscCH+DiscMM+SpecialCH+SpecialMM+LoyalCH+PriceDiff+PctDiscMM+PctDiscCH, data = train, cp = 0.005)
-> rpart.plot(treetest)
-> predtest = predict(treetest, newdata = test, type = 'prob')
-> ROCRpredtest = prediction(predtest[,2], test$Purchase)
-> ROCRperftest = performance(ROCRpredtest, "tpr","fpr")
-> plot(ROCRperftest)
-> as.numeric(performance(ROCRpredtest,"auc")@y.values)
-[1] 0.8628776
-> set.seed(617)
-> plot(bag)
-> ROCRpredbag = prediction(predBag[,2], test$Purchase)
-> ROCRperfbag = performance(ROCRpredbag, "tpr", "fpr")
-> plot(ROCRperfbag)
-> as.numeric(performance(ROCRpredbag, "auc")@y.values)
-[1] 0.8664286
-> round(as.numeric(performance(ROCRpredbag, "auc")@y.values), 2)
-[1] 0.87
-> set.seed(617)
+treetest = rpart(Purchase~PriceCH+PriceMM+DiscCH+DiscMM+SpecialCH+SpecialMM+LoyalCH+PriceDiff+PctDiscMM+PctDiscCH, data = train, cp = 0.005)
+
+rpart.plot(treetest)
+
+predtest = predict(treetest, newdata = test, type = 'prob')
+
+ROCRpredtest = prediction(predtest[,2], test$Purchase)
+ROCRperftest = performance(ROCRpredtest, "tpr","fpr")
+
+plot(ROCRperftest)
+as.numeric(performance(ROCRpredtest,"auc")@y.values)
+
+set.seed(617)
+
+plot(bag)
+
+ROCRpredbag = prediction(predBag[,2], test$Purchase)
+ROCRperfbag = performance(ROCRpredbag, "tpr", "fpr")
+
+plot(ROCRperfbag)
+
+as.numeric(performance(ROCRpredbag, "auc")@y.values)
+round(as.numeric(performance(ROCRpredbag, "auc")@y.values), 2)
+
 forest = randomForest(Purchase~PriceCH+PriceMM+DiscCH+DiscMM+SpecialCH+SpecialMM+LoyalCH+PriceDiff+PctDiscMM+PctDiscCH, data = train, ntree = 1000)
 
 predForest = predict(forest, newdata = test, type = "prob")
